@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Global</name>
+    <events>
+        <variable comment="Sector were TankBase is at" constant="0" name="TankBaseSector" sid="9922280442681656" static="0" type="text">Sector X</variable>
+        <variable comment="TankBase1 X cord" constant="0" name="TankBase1X" sid="8691616067894575" static="0" type="number">0</variable>
+        <variable comment="TankBase1 Y cord" constant="0" name="TankBase1Y" sid="895071109593671" static="0" type="number">0</variable>
+        <variable comment="Last Picked Tank" constant="0" name="LastPickedTank" sid="6613320107893002" static="0" type="number">1</variable>
+    </events>
+</c2eventsheet>

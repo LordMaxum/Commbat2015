@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Enemy Tank</name>
+    <events>
+        <event-block sid="8663410761400773">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9130650360566248" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9888673765633743">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7992044738679533" type="ETankBottom" />
+                        <action id="-9" name="Destroy" sid="2222419597235986" type="ETankTop" />
+                        <action id="-3" name="Create object" sid="4688433947852195" type="System">
+                            <param id="0" name="Object to create">ETankBottom</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">TankBase1X + 400</param>
+                            <param id="3" name="Y">TankBase1Y + 400</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="1407821778003371" type="System">
+                            <param id="0" name="Object to create">ETankTop</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">0</param>
+                            <param id="3" name="Y">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7555939608583441">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="185773987336619" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="2263286189079098" type="ETankTop">
+                    <param id="0" name="Object">ETankBottom</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-8" name="Set angle" sid="6503522707657453" type="ETankTop">
+                    <param id="0" name="Angle">ETankBottom.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="Enemy Tank Death" sid="5521407125771504" title="Enemy Tank Death">
+            <sub-events>
+                <event-block sid="1976432172691015">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="665117373633903" type="ETankBottom">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="1625644742327095" type="ETankBottom">
+                            <param id="0" name="Instance variable">Death</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Zigzag" id="0" name="Set activated" sid="9604610046322266" type="ETankBottom">
+                            <param id="0" name="Activated">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="307776527451261" type="ETankBottom">
+                            <param id="0" name="Instance variable">Death</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="2728183362366949" type="ETankBottom">
+                            <param id="0" name="Object">SkullBones</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="3234962533068863" type="SkullBones">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="5834701671661828" type="SkullBones">
+                            <param id="0" name="Pin to">ETankBottom</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="7237931505761562" type="ETankBottom">
+                            <param id="0" name="Object">Explosion1</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="5042488655560022" type="Audio">
+                            <param id="0" name="Audio file">Explosion1</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="4669674635340079" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1133714393722459" type="Explosion1" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Enemy Tank Fire" sid="3062788407101753" title="Enemy Tank Fire">
+            <sub-events>
+                <event-block sid="4064682332581492">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="5440976653594913" type="ETankBottom">
+                            <param id="0" name="Instance variable">Death</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-11" name="For Each" sid="6524627198592121" type="System">
+                            <param id="0" name="Object">TankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6633897940696523">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="1363230113063542" type="System">
+                                    <param id="0" name="First value">distance(ETankBottom.X, ETankBottom.Y, TankBottom.X, TankBottom.Y)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">200</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="9683873416821633" type="TankBottom">
+                                    <param id="0" name="Instance variable">Dead</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-22" name="Set angle toward position" sid="6490939482416295" type="ETankTop">
+                                    <param id="0" name="X">TankBottom.X</param>
+                                    <param id="1" name="Y">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="3274784883051976">
+                                    <conditions>
+                                        <condition id="-6" name="Every X seconds" sid="8785442214891856" type="System">
+                                            <param id="0" name="Interval (seconds)">0.8</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="733066048748117" type="ETankTop">
+                                            <param id="0" name="Object">ELaser</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="3282679711825936" type="ELaser">
+                                            <param id="0" name="Instance variable">StartX</param>
+                                            <param id="1" name="Value">ELaser.X</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="7097254952940546" type="ELaser">
+                                            <param id="0" name="Instance variable">StartY</param>
+                                            <param id="1" name="Value">ELaser.Y</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="3423147976362822" type="Audio">
+                                            <param id="0" name="Audio file">Laser</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;Laser&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Enemy Tank Collsion Controls" sid="683731542143134" title="Enemy Tank Collsion Controls">
+            <sub-events>
+                <event-block sid="941591293248914">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1958587738524449" type="ELaser">
+                            <param id="0" name="Object">TankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="7825145175789315" type="ELaser">
+                            <param id="0" name="Object">Explosion1</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="2612164049220261" type="Explosion1">
+                            <param id="0" name="Angle">Random(360)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="107552093295415" type="ELaser" />
+                        <action id="-12" name="Subtract from" sid="3256515671884175" type="TankBottom">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="3458963557211723">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="3976429349906668" type="System">
+                                    <param id="0" name="Interval (seconds)">0.5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="6254442341548127" type="Audio">
+                                    <param id="0" name="Audio file">Explosion1</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Explosion1&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="6390639485032844" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="3196022246129926" type="Explosion1" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Enemy Weapon Range" sid="7837619073098695" title="Enemy Weapon Range">
+            <sub-events>
+                <event-block sid="700941202726724">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="144497983076795" type="System">
+                            <param id="0" name="First value">distance(ELaser.StartX,ELaser.StartY,ELaser.X,ELaser.Y)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">700</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2231261214741558" type="ELaser" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

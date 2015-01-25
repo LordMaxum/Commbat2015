@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>AboutGame</name>
+    <events>
+        <comment>Turn off the mouse cursor (arrow)</comment>
+        <event-block sid="4376111960175494">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3689145170042187" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="845796156040539" type="Mouse">
+                    <param id="0" name="Cursor style">7</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Setup animation for buttons and Crosshairs when mouse is over buttons</comment>
+        <event-block sid="5583234337290197">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="3023474228225661" type="Mouse">
+                    <param id="0" name="Object">StartGameAgS</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1624023303935522" type="StartGameAgS">
+                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="1413530167802671" type="CrosshairsAboutG">
+                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2121656377161917">
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" sid="9635744210669342" type="Mouse">
+                    <param id="0" name="Object">StartGameAgS</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="5594216925864854" type="StartGameAgS">
+                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="4938488078701053" type="CrosshairsAboutG">
+                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>When you click on the Start Game Button will take you to PickBaseLoc Layout</comment>
+        <event-block sid="23666044626404">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="7551922459113324" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">StartGameAgS</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="7724337966401725" type="System">
+                    <param id="0" name="Layout">PickBaseLoc</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

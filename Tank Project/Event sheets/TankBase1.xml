@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>TankBase1</name>
+    <events>
+        <event-block sid="3381668534087767">
+            <conditions>
+                <condition id="4" name="On finished" sid="8508797740378425" type="TankBase1">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="6607998272564763" type="TankBase1">
+                    <param id="0" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6323806734064674">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5274016780996827" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="581831212567386" type="TankBase1">
+                    <param id="0" name="X">TankBase1X</param>
+                    <param id="1" name="Y">TankBase1Y</param>
+                </action>
+                <action id="-24" name="Move to top" sid="9584758156557241" type="TankBase1" />
+                <action id="-16" name="Set opacity" sid="4777039835284541" type="TankBase1">
+                    <param id="0" name="Opacity">60</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="Set TankBase1 Opacity when tank enter and leave base" sid="7990449313930937" title="TankBase1 Opacity">
+            <sub-events>
+                <event-block sid="7579471986298498">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1324442646206563" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5768589155969828">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="2979882280111575" type="TankBottom">
+                                    <param id="0" name="Object">TankBase1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="1193343247765791" type="TankBase1">
+                                    <param id="0" name="Opacity">60</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3805871726672028">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8347501371063852" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3294188494000313">
+                            <conditions>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="5564949544686657" type="TankBottom">
+                                    <param id="0" name="Object">TankBase1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="1901023943812719" type="TankBase1">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="When tank in base it gets repaired" sid="9808220282423815" title="Tank Repair">
+            <sub-events>
+                <event-block sid="8841493728637722">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8380707697355691" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2842115416745955">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="9659369078290818" type="TankBottom">
+                                    <param id="0" name="Object">TankBase1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1833765109430621" type="TankBottom">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="7445225978958122">
+                                    <conditions>
+                                        <condition id="-6" name="Every X seconds" sid="897350695797926" type="System">
+                                            <param id="0" name="Interval (seconds)">0.050</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="3280525007645997" type="TankBottom">
+                                            <param id="0" name="Instance variable">Health</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

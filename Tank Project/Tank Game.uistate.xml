@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML 5" />
+        </active>
+        <display name="HTML 5" />
+    </configurations>
+    <open-tabs />
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/HUD Frame/" />
+        <folder expanded="0" path="object-folder/Tank1/" />
+        <folder expanded="0" path="object-folder/Weapons/" />
+        <folder expanded="0" path="object-folder/Tank2/" />
+        <folder expanded="0" path="object-folder/HUD Text Top/" />
+        <folder expanded="0" path="object-folder/Background/" />
+        <folder expanded="0" path="object-folder/TankBase1/" />
+        <folder expanded="0" path="object-folder/HUD Text Bottom/" />
+        <folder expanded="0" path="object-folder/PickBaseLoc/" />
+        <folder expanded="0" path="object-folder/StartScreen/" />
+        <folder expanded="0" path="object-folder/AboutGame/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="0" path="file-folder/" />
+        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/FrameBottomLeftCorner/" />
+        <folder expanded="1" path="animation-folder/FrameBottonRightCorner/" />
+        <folder expanded="1" path="animation-folder/FrameRightObject/" />
+        <folder expanded="1" path="animation-folder/frameTopLeftCorner/" />
+        <folder expanded="1" path="animation-folder/FrameTopRightCorner/" />
+        <folder expanded="1" path="animation-folder/FrameLeftObject/" />
+        <folder expanded="1" path="animation-folder/FrameBottomLeftCorner2/" />
+        <folder expanded="1" path="animation-folder/FrameBottonRightCorner2/" />
+        <folder expanded="1" path="animation-folder/frameTopLeftCorner2/" />
+        <folder expanded="1" path="animation-folder/FrameTopRightCorner2/" />
+        <folder expanded="1" path="animation-folder/FrameLeftObject2/" />
+        <folder expanded="1" path="animation-folder/FrameRightObject2/" />
+        <folder expanded="1" path="animation-folder/HudBackground/" />
+        <folder expanded="1" path="animation-folder/HudBackground2/" />
+        <folder expanded="1" path="animation-folder/TankTop/" />
+        <folder expanded="1" path="animation-folder/TankBottom/" />
+        <folder expanded="1" path="animation-folder/TankTread/" />
+        <folder expanded="1" path="animation-folder/HealthBar/" />
+        <folder expanded="1" path="animation-folder/Crosshairs/" />
+        <folder expanded="1" path="animation-folder/SkullBones/" />
+        <folder expanded="1" path="animation-folder/Crosshairs2/" />
+        <folder expanded="1" path="animation-folder/ELaser/" />
+        <folder expanded="1" path="animation-folder/Fire/" />
+        <folder expanded="1" path="animation-folder/LandMine/" />
+        <folder expanded="1" path="animation-folder/Laser/" />
+        <folder expanded="1" path="animation-folder/Shell/" />
+        <folder expanded="1" path="animation-folder/ETankBottom/" />
+        <folder expanded="1" path="animation-folder/ETankTop/" />
+        <folder expanded="1" path="animation-folder/TankBase1/" />
+        <folder expanded="1" path="animation-folder/Base/" />
+        <folder expanded="1" path="animation-folder/SectorLine/" />
+        <folder expanded="1" path="animation-folder/SectorLine2/" />
+        <folder expanded="1" path="animation-folder/SectorLine3/" />
+        <folder expanded="1" path="animation-folder/SectorLine4/" />
+        <folder expanded="1" path="animation-folder/CrossHirePB/" />
+        <folder expanded="1" path="animation-folder/PickArea/" />
+        <folder expanded="1" path="animation-folder/Border/" />
+        <folder expanded="1" path="animation-folder/Border2/" />
+        <folder expanded="1" path="animation-folder/Border3/" />
+        <folder expanded="1" path="animation-folder/Border4/" />
+        <folder expanded="1" path="animation-folder/CommBatS/" />
+        <folder expanded="1" path="animation-folder/StartGameButton/" />
+        <folder expanded="1" path="animation-folder/AboutGameButton/" />
+        <folder expanded="1" path="animation-folder/CrosshairsStartG/" />
+        <folder expanded="1" path="animation-folder/AboutGameS/" />
+        <folder expanded="1" path="animation-folder/StartGameAgS/" />
+        <folder expanded="1" path="animation-folder/CrosshairsAboutG/" />
+        <folder expanded="1" path="animation-folder/Explosion1/" />
+    </folders-expanded>
+</c2uistate>

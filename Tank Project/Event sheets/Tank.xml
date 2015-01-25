@@ -1,0 +1,1791 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Tank</name>
+    <events>
+        <event-block sid="6555850009554782">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="4095072878462332" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="290750145713113" type="TankTop">
+                    <param id="0" name="Object">TankBottom</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="7439282438610147" type="TankNumber">
+                    <param id="0" name="X">TankBottom.X - 5</param>
+                    <param id="1" name="Y">TankBottom.Y - 5</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block disabled="1" sid="5588394208290111">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="6599773328741371" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="1428136780305901" type="FPSInfoTxt">
+                            <param id="0" name="Text">&quot;FPS: &quot;&amp;fps&amp;&quot; Objects: &quot;&amp;objectcount&amp;&quot; &quot;&amp;TankBaseSector&amp;&quot;: &quot;&amp;round(TankBottom.X)&amp;&quot;,&quot;&amp;round(TankBottom.Y)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="Tank Setup" sid="6824963869670199" title="Tank Setup">
+            <sub-events>
+                <event-block sid="3771968561067135">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="8174737959011097" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8765619304822585">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Destroy" sid="6786396701742225" type="TankBottom" />
+                                <action id="-9" name="Destroy" sid="4797089826915745" type="TankTop" />
+                                <action id="-9" name="Destroy" sid="1982186375367393" type="TankNumber" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="6508055437501777">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="6939194391978785" type="System">
+                                            <param id="0" name="Name">&quot;MakeTanks&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">8</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="4946331623648338" type="System">
+                                            <param id="0" name="Object to create">TankBottom</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">100</param>
+                                            <param id="3" name="Y">100</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="3173116842484248" type="System">
+                                            <param id="0" name="Object to create">TankTop</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">0</param>
+                                            <param id="3" name="Y">0</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="7534314178040565" type="System">
+                                            <param id="0" name="Object to create">TankNumber</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">0</param>
+                                            <param id="3" name="Y">0</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="4352593831973746" type="TankNumber">
+                                            <param id="0" name="Text">loopindex</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="8693552709026603" type="TankBottom">
+                                            <param id="0" name="Instance variable">TankID</param>
+                                            <param id="1" name="Value">loopindex</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="7219476196700546" type="TankTop">
+                                            <param id="0" name="Instance variable">TankID</param>
+                                            <param id="1" name="Value">loopindex</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="1319498405233388" type="TankBottom">
+                                            <param id="0" name="Instance variable">TurretTracking</param>
+                                            <param id="1" name="Value">&quot;Locked&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Set up the Sector and the X  and Y for each tank on start up</comment>
+                                <event-block sid="8461698931797077">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="8462211686818882" type="System">
+                                            <param id="0" name="Object">TankBottom</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="5085031750952245">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="4774696957136185" type="TankBottom">
+                                                    <param id="0" name="Comparison">3</param>
+                                                    <param id="1" name="X co-ordinate">5100</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="236574674202375" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="1384610206031531" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 1&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="5123033306253134" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="6636687536473958" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="1433954521799864">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="7303360788436283" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="X co-ordinate">5101</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="6778869783719577" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="1622930256500646" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 2&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="5998104985507029" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="430076806408346" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8246829459236092">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="182744441011452" type="TankBottom">
+                                                    <param id="0" name="Comparison">3</param>
+                                                    <param id="1" name="X co-ordinate">5100</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="9570815393891177" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">5101</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="5353628937929334" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 3&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="4865222908698296" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="4822844640637957" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="5923048915272072">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="5205920902922372" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="X co-ordinate">5101</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="3442484121663284" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">5101</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="8046614322515933" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 4&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="3627057934897979" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="4632515731041775" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8634458221133986">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="6322562794052397" type="TankBottom">
+                                                    <param id="0" name="Comparison">3</param>
+                                                    <param id="1" name="X co-ordinate">5100</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="3070079040982473" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">10101</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="7479001680461208" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 5&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="1531307466352112" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="5974508497383467" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8375151228742213">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="6424535168981839" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="X co-ordinate">5101</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="2445406526011674" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">10101</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="9095246608624425" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 6&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="2655480040992108" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="4413139420435522" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="2414564031198389">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="1621911222139875" type="TankBottom">
+                                                    <param id="0" name="Comparison">3</param>
+                                                    <param id="1" name="X co-ordinate">5100</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="8473560102481397" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">15101</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="9137933993863687" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 7&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="7092084673363255" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="2679993682312272" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="5429231719878836">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="4377112743057051" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="X co-ordinate">5101</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="2084474248882529" type="TankBottom">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">15101</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="4110980789564118" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Sector</param>
+                                                    <param id="1" name="Value">&quot;Sector 8&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="2557099837310524" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankX</param>
+                                                    <param id="1" name="Value">TankBottom.X</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="1974708011574763" type="TankBottom">
+                                                    <param id="0" name="Instance variable">TankY</param>
+                                                    <param id="1" name="Value">TankBottom.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="TankTread" sid="8673530479545025" title="TankTread">
+            <sub-events>
+                <event-block sid="3818395065558275">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7047509761325456" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7786037522690915">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="5151586429154909" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="6202418241590603" type="TankTread">
+                                    <param id="0" name="Opacity">TankTread.Opacity-3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8138162984779051">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="11096461086622" type="System">
+                                    <param id="0" name="Interval (seconds)">0.01</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="3314755966520774" type="System">
+                                    <param id="0" name="Object to create">TankTread</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">TankBottom.X</param>
+                                    <param id="3" name="Y">TankBottom.Y</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="8449624435701526" type="TankTread">
+                                    <param id="0" name="Angle">TankBottom.Angle</param>
+                                </action>
+                                <action id="-25" name="Move to bottom" sid="4043161637180721" type="TankTread" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="2147998558473625">
+                            <conditions>
+                                <condition id="-10" name="Compare opacity" sid="3354318226419221" type="TankTread">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Opacity">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="5410161373179881" type="TankTread" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Tank Movement" sid="1683836244770114" title="Tank Movement">
+            <sub-events>
+                <event-block sid="1875395475695908">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="5822429226172608" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4122990728242279">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="4401167098109661" type="TankBottom">
+                                    <param id="0" name="Instance variable">Dead</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2926209810675464">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="946459074238214" type="Keyboard">
+                                            <param id="0" name="Key">37 (Left arrow)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-19" name="Rotate counter-clockwise" sid="9968620991346002" type="TankBottom">
+                                            <param id="0" name="Degrees">2 </param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4190641111248511">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="6488322512453964" type="Keyboard">
+                                            <param id="0" name="Key">39 (Right arrow)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-18" name="Rotate clockwise" sid="7055673120568454" type="TankBottom">
+                                            <param id="0" name="Degrees">2 </param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Moving an object forward based on it&apos;s angle.&#x0D;&#x0A;&gt; Set X to .X + cos(.Angle) * 100 * TimeDelta&#x0D;&#x0A;&gt; Set Y to .Y + sin(.Angle) * 100 * TimeDelta&#x0D;&#x0A;&#x0D;&#x0A;&apos;100&apos; means it moves at 100 pixels per second. Replace it with a private variable and you can control the speed.</comment>
+                                <event-block sid="4001149939131626">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="2030534912426822" type="Keyboard">
+                                            <param id="0" name="Key">38 (Up arrow)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="2507321136326195" type="TankBottom">
+                                            <param id="0" name="X">TankBottom.X + cos(TankBottom.Angle) * TankBottom.Speed * dt</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="425079979893441" type="TankBottom">
+                                            <param id="0" name="Y">TankBottom.Y + sin(TankBottom.Angle) * TankBottom.Speed * dt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Moving an object backward based on it&apos;s angle.&#x0D;&#x0A;&gt; Set X to .X + cos(.Angle + 180) * 100 * TimeDelta&#x0D;&#x0A;&gt; Set Y to .Y + sin(.Angle + 180) * 100 * TimeDelta&#x0D;&#x0A;&#x0D;&#x0A;&apos;100&apos; means it moves at 100 pixels per second. Replace it with a private variable and you can control the speed.</comment>
+                                <event-block sid="6795988375938139">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="926384708392572" type="Keyboard">
+                                            <param id="0" name="Key">40 (Down arrow)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="6412973499845324" type="TankBottom">
+                                            <param id="0" name="X">TankBottom.X + cos(TankBottom.Angle + 180) * TankBottom.Speed * dt</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="510292537948796" type="TankBottom">
+                                            <param id="0" name="Y">TankBottom.Y + sin(TankBottom.Angle + 180) * TankBottom.Speed * dt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Tank Weapon Controls" sid="1148353019946758" title="Tank Weapon Controls">
+            <sub-events>
+                <event-block sid="4495534168293869">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="6368980103574077" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="5957196538555238" type="TankTop">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Check to see if tank is dead, if it is do not fire weapon</comment>
+                        <event-block sid="9630254768623803">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="568045401797587" type="TankBottom">
+                                    <param id="0" name="Instance variable">Dead</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2981742252697767">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="5492870201463036" type="Keyboard">
+                                            <param id="0" name="Key">76 (L)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="2456579438949349" type="TankBottom">
+                                            <param id="0" name="Instance variable">WeaponSelected</param>
+                                            <param id="1" name="Value">&quot;Laser&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5655965901341185">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="3094892175518871" type="Keyboard">
+                                            <param id="0" name="Key">83 (S)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="970911314772203" type="TankBottom">
+                                            <param id="0" name="Instance variable">WeaponSelected</param>
+                                            <param id="1" name="Value">&quot;Shell&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6264185188690415">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="5896031361782682" type="Keyboard">
+                                            <param id="0" name="Key">77 (M)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="6740181459341827" type="TankBottom">
+                                            <param id="0" name="Instance variable">WeaponSelected</param>
+                                            <param id="1" name="Value">&quot;LandMine&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7522150753335365">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="5988058601960469" type="Keyboard">
+                                            <param id="0" name="Key">70 (F)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="1221574655347635" type="TankBottom">
+                                            <param id="0" name="Instance variable">WeaponSelected</param>
+                                            <param id="1" name="Value">&quot;Fire&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7023916106517621">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="6774361349583504" type="Keyboard">
+                                            <param id="0" name="Key">32 (Space)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="4772386877350409">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="4505366964257683" type="TankBottom">
+                                                    <param id="0" name="Instance variable">WeaponSelected</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Laser&quot;</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="9804108296833435" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Laser</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="944043442691769">
+                                                    <conditions>
+                                                        <condition id="-6" name="Every X seconds" sid="489151106291049" type="System">
+                                                            <param id="0" name="Interval (seconds)">0.3</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="8129403691459687" type="TankTop">
+                                                            <param id="0" name="Object">Laser</param>
+                                                            <param id="1" name="Layer">1</param>
+                                                            <param id="2" name="Image point">1</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="2719293371784537" type="Laser">
+                                                            <param id="0" name="Instance variable">StartX</param>
+                                                            <param id="1" name="Value">Laser.X</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="1781102419948569" type="Laser">
+                                                            <param id="0" name="Instance variable">StartY</param>
+                                                            <param id="1" name="Value">Laser.Y</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="5918415182215666" type="Audio">
+                                                            <param id="0" name="Audio file">Laser</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;Laser&quot;</param>
+                                                        </action>
+                                                        <action id="-12" name="Subtract from" sid="7086343366304152" type="TankBottom">
+                                                            <param id="0" name="Instance variable">Laser</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="1616875802295368">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="7957229133848819" type="TankBottom">
+                                                    <param id="0" name="Instance variable">WeaponSelected</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Fire&quot;</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="239486176256227" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Fire</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="5242844156614384">
+                                                    <conditions>
+                                                        <condition id="-6" name="Every X seconds" sid="7878770106941868" type="System">
+                                                            <param id="0" name="Interval (seconds)">0.0001</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="8397367411847061" type="TankTop">
+                                                            <param id="0" name="Object">Fire</param>
+                                                            <param id="1" name="Layer">1</param>
+                                                            <param id="2" name="Image point">1</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="5747058455634489" type="Fire">
+                                                            <param id="0" name="Instance variable">StartX</param>
+                                                            <param id="1" name="Value">Fire.X</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="8093332817262199" type="Fire">
+                                                            <param id="0" name="Instance variable">StartY</param>
+                                                            <param id="1" name="Value">Fire.Y</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="8160167918037885">
+                                                    <conditions>
+                                                        <condition id="-6" name="Every X seconds" sid="4702090240535284" type="System">
+                                                            <param id="0" name="Interval (seconds)">0.5</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Play" sid="4358214106962311" type="Audio">
+                                                            <param id="0" name="Audio file">Fire</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;Fire&quot;</param>
+                                                        </action>
+                                                        <action id="-12" name="Subtract from" sid="4314032293183531" type="TankBottom">
+                                                            <param id="0" name="Instance variable">Fire</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="5935455981680473">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9959019104925177" type="TankBottom">
+                                                    <param id="0" name="Instance variable">WeaponSelected</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Shell&quot;</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="526191488769826" type="TankBottom">
+                                                    <param id="0" name="Instance variable">Shell</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="7279681276404696">
+                                                    <conditions>
+                                                        <condition id="-6" name="Every X seconds" sid="4650118472900305" type="System">
+                                                            <param id="0" name="Interval (seconds)">0.9</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="4003844463299582" type="TankTop">
+                                                            <param id="0" name="Object">Shell</param>
+                                                            <param id="1" name="Layer">1</param>
+                                                            <param id="2" name="Image point">1</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="3098358816069575" type="Shell">
+                                                            <param id="0" name="Instance variable">StartX</param>
+                                                            <param id="1" name="Value">Shell.X</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="2539278849900601" type="Shell">
+                                                            <param id="0" name="Instance variable">StartY</param>
+                                                            <param id="1" name="Value">Shell.Y</param>
+                                                        </action>
+                                                        <action id="0" name="Play" sid="2963789578242123" type="Audio">
+                                                            <param id="0" name="Audio file">Shell</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;Shell&quot;</param>
+                                                        </action>
+                                                        <action id="-12" name="Subtract from" sid="9869911032583892" type="TankBottom">
+                                                            <param id="0" name="Instance variable">Shell</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="9897531294730994">
+                                    <conditions>
+                                        <condition id="3" name="On key released" sid="7900243553040291" type="Keyboard">
+                                            <param id="0" name="Key">32 (Space)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="9382750875166577">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9583057425972716" type="TankBottom">
+                                                    <param id="0" name="Instance variable">WeaponSelected</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;LandMine&quot;</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="9636507500246162" type="TankBottom">
+                                                    <param id="0" name="Instance variable">LandMine</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="6537492889666926">
+                                                    <conditions />
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="1690905444351564" type="TankTop">
+                                                            <param id="0" name="Object">LandMine</param>
+                                                            <param id="1" name="Layer">1</param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                        <action id="-25" name="Move to bottom" sid="6698212414761347" type="LandMine" />
+                                                        <action id="0" name="Play" sid="9779560831499634" type="Audio">
+                                                            <param id="0" name="Audio file">LandMine</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;LandMine&quot;</param>
+                                                        </action>
+                                                        <action id="-12" name="Subtract from" sid="7287528573753178" type="TankBottom">
+                                                            <param id="0" name="Instance variable">LandMine</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Tank Speed Control" sid="7968691106809142" title="Tank Speed Control">
+            <sub-events>
+                <event-block sid="7823509674880696">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8918170720961542" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4184753101268499">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="8789421223181494" type="Keyboard">
+                                    <param id="0" name="Key">221 (])</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="9700614869021603" type="TankBottom">
+                                    <param id="0" name="Instance variable">Speed</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="7372670939981977">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="3654753504572439" type="TankBottom">
+                                            <param id="0" name="Instance variable">Speed</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">500</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="9808485742872772" type="TankBottom">
+                                            <param id="0" name="Instance variable">Speed</param>
+                                            <param id="1" name="Value">500</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="6535546310517213">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="4660042589751121" type="Keyboard">
+                                    <param id="0" name="Key">219 ([)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="5672708183898653" type="TankBottom">
+                                    <param id="0" name="Instance variable">Speed</param>
+                                    <param id="1" name="Value">100</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="4600029136994497">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="2891196260269442" type="TankBottom">
+                                            <param id="0" name="Instance variable">Speed</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="3167585294763864" type="TankBottom">
+                                            <param id="0" name="Instance variable">Speed</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Tank Turret Movement" sid="313721045773031" title="Tank Turret Movement">
+            <sub-events>
+                <event-block sid="755493099146182">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7851343189813471" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="2053160456788334" type="TankTop">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4904014518236181">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="3873509672743977" type="TankBottom">
+                                    <param id="0" name="Instance variable">TurretTracking</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Locked&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-8" name="Set angle" sid="5430720978557195" type="TankTop">
+                                    <param id="0" name="Angle">TankBottom.Angle</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Ckeck to see if tank is dead, if it is do not move turret</comment>
+                        <event-block sid="2859275578183435">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="8372678280476967" type="TankBottom">
+                                    <param id="0" name="Instance variable">Dead</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>check to see if turrent-tracking is set to &quot;Cursor&quot; (mouse moving turrent)</comment>
+                                <event-block sid="2434647955985943">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="9306127639486482" type="TankBottom">
+                                            <param id="0" name="Instance variable">TurretTracking</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Cursor&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-22" name="Set angle toward position" sid="7283801208878212" type="TankTop">
+                                            <param id="0" name="X">Mouse.X</param>
+                                            <param id="1" name="Y">Mouse.Y</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="3709666656375905">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="9874808977077024" type="Crosshairs">
+                                                    <param id="0" name="Object">ETankBottom</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="7054557263077426" type="Crosshairs">
+                                                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="2094710870053193">
+                                            <conditions>
+                                                <condition id="1" inverted="1" name="Is overlapping another object" sid="6911708277671895" type="Crosshairs">
+                                                    <param id="0" name="Object">ETankBottom</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="2036253193951439" type="Crosshairs">
+                                                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="5991224088125212">
+                                    <conditions>
+                                        <condition id="3" name="On key released" sid="5412791073030462" type="Keyboard">
+                                            <param id="0" name="Key">86 (V)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="2391127494701589" type="TankBottom">
+                                            <param id="0" name="Instance variable">TurretTracking</param>
+                                            <param id="1" name="Value">&quot;Locked&quot;</param>
+                                        </action>
+                                        <action id="0" name="Set cursor style" sid="2517235194007494" type="Mouse">
+                                            <param id="0" name="Cursor style">0</param>
+                                        </action>
+                                        <action behavior="Cursor" id="0" name="Set activated" sid="2930894489215119" type="Crosshairs">
+                                            <param id="0" name="Activated">0</param>
+                                        </action>
+                                        <action id="-3" name="Set position" sid="7472962511006937" type="Crosshairs">
+                                            <param id="0" name="X">-100</param>
+                                            <param id="1" name="Y">-100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Check if using Cursor then turn off the mouse cursor</comment>
+                                <event-block sid="195273850198876">
+                                    <conditions>
+                                        <condition id="3" name="On key released" sid="8821251220093952" type="Keyboard">
+                                            <param id="0" name="Key">67 (C)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="6073733515697498" type="TankBottom">
+                                            <param id="0" name="Instance variable">TurretTracking</param>
+                                            <param id="1" name="Value">&quot;Cursor&quot;</param>
+                                        </action>
+                                        <action id="0" name="Set cursor style" sid="2823953782545764" type="Mouse">
+                                            <param id="0" name="Cursor style">7</param>
+                                        </action>
+                                        <action behavior="Cursor" id="0" name="Set activated" sid="5190696302956153" type="Crosshairs">
+                                            <param id="0" name="Activated">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2511822154136693">
+                                    <conditions>
+                                        <condition id="3" name="On key released" sid="1191407771804477" type="Keyboard">
+                                            <param id="0" name="Key">75 (K)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="7311887932867924" type="TankBottom">
+                                            <param id="0" name="Instance variable">TurretTracking</param>
+                                            <param id="1" name="Value">&quot;Keyboard&quot;</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="9273139663636158" type="TankTop">
+                                            <param id="0" name="Angle">TankBottom.Angle</param>
+                                        </action>
+                                        <action behavior="Cursor" id="0" name="Set activated" sid="8935447822067883" type="Crosshairs">
+                                            <param id="0" name="Activated">0</param>
+                                        </action>
+                                        <action id="-3" name="Set position" sid="3953664671201669" type="Crosshairs">
+                                            <param id="0" name="X">-100</param>
+                                            <param id="1" name="Y">-100</param>
+                                        </action>
+                                        <action id="0" name="Set cursor style" sid="4481215053307924" type="Mouse">
+                                            <param id="0" name="Cursor style">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7035145097994938">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="9167054866183066" type="TankBottom">
+                                            <param id="0" name="Instance variable">TurretTracking</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Keyboard&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="3494570033823189">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="4586954664687318" type="Keyboard">
+                                                    <param id="0" name="Key">90 (Z)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-19" name="Rotate counter-clockwise" sid="4176902356308094" type="TankTop">
+                                                    <param id="0" name="Degrees">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="4534424102362358">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="2613553190316115" type="Keyboard">
+                                                    <param id="0" name="Key">88 (X)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-18" name="Rotate clockwise" sid="4916476162364012" type="TankTop">
+                                                    <param id="0" name="Degrees">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Tank Health Bar" sid="4263121895478806" title="Tank Health Bar">
+            <sub-events>
+                <event-block sid="684790748926503">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7020510374722912" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2253529604965118">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="7928212772565719" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="6934695631695204" type="HealthBaseTB">
+                                    <param id="0" name="Object">TankBottom</param>
+                                    <param id="1" name="Image point (optional)">1</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="8083258415258249" type="HealthBar">
+                                    <param id="0" name="Width">TankBottom.Health / 2</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="7143756283674125" type="HealthBar">
+                                    <param id="0" name="Object">TankBottom</param>
+                                    <param id="1" name="Image point (optional)">1</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="4900583046959117" type="HealthBaseTB">
+                                    <param id="0" name="Angle">TankBottom.Angle</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="4877399446940748" type="HealthBar">
+                                    <param id="0" name="Angle">TankBottom.Angle</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7556377758507544">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="9464023124817847" type="TankBottom">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="9464563647134937" type="TankBottom">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4722463153579803">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="2880768406724516" type="TankBottom">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">35</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="1277900380379635" type="HealthBar">
+                                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1245404635317146">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="1428200932272376" type="TankBottom">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">36</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="8001456468539116" type="HealthBar">
+                                    <param id="0" name="Animation">&quot;Yellow&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8526893332452407">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="4859074896346604" type="TankBottom">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">66</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="8894417037435716" type="HealthBar">
+                                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Pick Tank" sid="9332875904950695" title="Pick Tank">
+            <sub-events>
+                <event-block sid="7867866472089543">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="3682783532531061" type="Keyboard">
+                            <param id="0" name="Key">49 (1)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="921773869551133" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3291806983172956" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8947581550839918">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="3424022437597995" type="Keyboard">
+                            <param id="0" name="Key">50 (2)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="8560691895209354" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2976364653514424" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6843237993648563">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="5831866415141608" type="Keyboard">
+                            <param id="0" name="Key">51 (3)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="6360043475981876" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="184345256712739" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6787599001969284">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="5235356887226292" type="Keyboard">
+                            <param id="0" name="Key">52 (4)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="1928093876016577" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2869496957335603" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5533309203920742">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="5792789508762336" type="Keyboard">
+                            <param id="0" name="Key">53 (5)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="5902597424508123" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7857659769419106" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="904705904296141">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="414916406896487" type="Keyboard">
+                            <param id="0" name="Key">54 (6)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="2134302450108536" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">6</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2191527402230398" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">6</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9892055685774261">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="9527287475747344" type="Keyboard">
+                            <param id="0" name="Key">55 (7)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="8853371545141168" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">7</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7056238490667215" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">7</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4728985469209669">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="307023219086046" type="Keyboard">
+                            <param id="0" name="Key">56 (8)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="797340971590468" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="922103750752465" type="System">
+                            <param id="0" name="Variable">LastPickedTank</param>
+                            <param id="1" name="Value">8</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Pick Tank to Scroll to" sid="1713335994645571" title="Pick Tank to Scroll to">
+            <sub-events>
+                <event-block sid="8937306283430856">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3419842424452265" type="TankBottom">
+                            <param id="0" name="Instance variable">TankID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">LastPickedTank</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Scroll to object" sid="8965831403120025" type="System">
+                            <param id="0" name="Object">TankBottom</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Tank Death" sid="8605590212930892" title="Tank Death">
+            <sub-events>
+                <event-block sid="6487630284999465">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1498137122159333" type="TankBottom">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="5378472172301822" type="TankBottom">
+                            <param id="0" name="Instance variable">Dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="2303367199520488" type="TankBottom">
+                            <param id="0" name="Instance variable">Dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="3851923326039279" type="TankBottom">
+                            <param id="0" name="Object">SkullBones</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="3397786031864714" type="SkullBones">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="3223004703994304" type="SkullBones">
+                            <param id="0" name="Pin to">TankBottom</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="7372315568720427" type="TankBottom">
+                            <param id="0" name="Object">Explosion1</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="5215477285678988" type="Audio">
+                            <param id="0" name="Audio file">Explosion1</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="8629278833987124" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="7866733384781838" type="Explosion1" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Tank Collsions Controls" sid="2548561473709725" title="Tank Collsions Controls">
+            <sub-events>
+                <event-block sid="7365558737902797">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3660594895962993" type="Laser">
+                            <param id="0" name="Object">ETankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="2099962940375147" type="Laser">
+                            <param id="0" name="Object">Explosion1</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="7373193199340223" type="Explosion1">
+                            <param id="0" name="Angle">Random(360)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6148854884125803" type="Laser" />
+                        <action id="-12" name="Subtract from" sid="51386808754771" type="ETankBottom">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="8078895113184415">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="8527918921852265" type="System">
+                                    <param id="0" name="Interval (seconds)">0.5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="5037835371784695" type="Audio">
+                                    <param id="0" name="Audio file">Explosion1</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Explosion1&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="8785787602929636" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="1119081401362392" type="Explosion1" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8664903731484694">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1514800929370865" type="Fire">
+                            <param id="0" name="Object">ETankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="1696705412862731" type="Fire">
+                            <param id="0" name="Object">Explosion1</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="1826345819763061" type="Explosion1">
+                            <param id="0" name="Angle">Random(360)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8101274847744949" type="Fire" />
+                        <action id="-12" name="Subtract from" sid="5309976793243891" type="ETankBottom">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="3311033335881195">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="5272192240766032" type="System">
+                                    <param id="0" name="Interval (seconds)">0.5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="6249628704744509" type="Audio">
+                                    <param id="0" name="Audio file">Explosion1</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Explosion1&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="2792187297821385" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="1136404771947623" type="Explosion1" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8688968432945018">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7121406538992653" type="Shell">
+                            <param id="0" name="Object">ETankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="9613478748738233" type="Shell">
+                            <param id="0" name="Object">Explosion1</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="5378861468062057" type="Explosion1">
+                            <param id="0" name="Angle">Random(360)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1122412120010176" type="Shell" />
+                        <action id="-12" name="Subtract from" sid="2843484007950996" type="ETankBottom">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">15</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="3722716406831734">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="8397939047455956" type="System">
+                                    <param id="0" name="Interval (seconds)">0.5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="466718360087792" type="Audio">
+                                    <param id="0" name="Audio file">Explosion1</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Explosion1&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="6696845348656176" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="9482070290440844" type="Explosion1" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2837369365280218">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3520686715618823" type="LandMine">
+                            <param id="0" name="Object">ETankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="3657412013122101" type="LandMine">
+                            <param id="0" name="Object">Explosion1</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="6267355054400468" type="Explosion1">
+                            <param id="0" name="Angle">Random(360)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="4901423236143958" type="LandMine" />
+                        <action id="-12" name="Subtract from" sid="2603287985605812" type="ETankBottom">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="2922786760066795">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="4340263460977432" type="System">
+                                    <param id="0" name="Interval (seconds)">0.5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="9251180941996734" type="Audio">
+                                    <param id="0" name="Audio file">Explosion1</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;Explosion1&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="8190669820582429" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="2595907382671136" type="Explosion1" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Update Tank Location. Find the Sector and the X and Y you are at" sid="3438256742790085" title="Update Tank Location">
+            <sub-events>
+                <event-block sid="3048786481050028">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="5053517481797142" type="System">
+                            <param id="0" name="Object">TankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9104169685663201">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="9825086819857679" type="TankBottom">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">5100</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="7664405764763549" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="972207390478783" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 1&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="2647129654552415" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="2929675146812364" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9974291179848706">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="2118104424892773" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">5101</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="5202302200941797" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="1712430214256461" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 2&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="5092504290334865" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="7764208955928417" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7459385698863477">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="7428486906908974" type="TankBottom">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">5100</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="6374273306829027" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">5101</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="8801409830618771" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 3&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="752274430025182" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8034981901492253" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6266169912787909">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="3852317057194281" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">5101</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="9891250252787603" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">5101</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="9976612689891611" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 4&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="906601978215979" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="9112824033370266" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6871721598557619">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="1288447481439633" type="TankBottom">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">5100</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="6751687073364524" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">10101</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="7432599459372906" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 5&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8066603946378809" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="2128113126656384" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5704338235158868">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="2282867623938207" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">5101</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="4431620855354098" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">10101</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="4038546523194773" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 6&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1952992856504932" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="4592791442684566" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5298876758989776">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="494434562824914" type="TankBottom">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">5100</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="8277335117432113" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">15101</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="328298056852015" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 7&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="7125346438920472" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="6151196431954785" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="361028581627178">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="8831211115436245" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">5101</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="6200390018839276" type="TankBottom">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">15101</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="6296968398893096" type="TankBottom">
+                                    <param id="0" name="Instance variable">Sector</param>
+                                    <param id="1" name="Value">&quot;Sector 8&quot;</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="7370681022590166" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankX</param>
+                                    <param id="1" name="Value">TankBottom.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="8004127421243933" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankY</param>
+                                    <param id="1" name="Value">TankBottom.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Weapon Range" sid="5780118709134028" title="Weapon Range">
+            <sub-events>
+                <event-block sid="2998306350823358">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="8325962250673614" type="System">
+                            <param id="0" name="First value">distance(Fire.StartX,Fire.StartY,Fire.X,Fire.Y)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">500</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2692628586353324" type="Fire" />
+                    </actions>
+                </event-block>
+                <event-block sid="700941202726724">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="144497983076795" type="System">
+                            <param id="0" name="First value">distance(Laser.StartX,Laser.StartY,Laser.X,Laser.Y)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">800</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2231261214741558" type="Laser" />
+                    </actions>
+                </event-block>
+                <event-block sid="2966843288593526">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="8347636626107226" type="System">
+                            <param id="0" name="First value">distance(Shell.StartX,Shell.StartY,Shell.X,Shell.Y)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">800</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="4584478234810779" type="Shell" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

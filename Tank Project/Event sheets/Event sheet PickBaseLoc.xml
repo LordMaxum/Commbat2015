@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet PickBaseLoc</name>
+    <events>
+        <event-group description="Base Location" sid="136244764406705" title="Base Location">
+            <sub-events>
+                <event-block sid="8219457669551467">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="9253980780280228" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="5767858062987707" type="Base">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="0" name="Set cursor style" sid="3719254127619157" type="Mouse">
+                            <param id="0" name="Cursor style">7</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <variable constant="0" name="BaseY" sid="8983318353164037" static="0" type="number">0</variable>
+                <variable constant="0" name="BaseX" sid="9482519481371255" static="0" type="number">0</variable>
+                <comment>This is the area that is good to put a Base</comment>
+                <comment>this coverts the X Cord in the small map to the X Cord in the Large map ****** round(CrossHirePB.X * 27.2)  </comment>
+                <comment>this coverts the Y Cord in the small map to the Y Cord in the Large map ****** round(CrossHirePB.Y * 26.93)  </comment>
+                <event-block sid="9556045555704769">
+                    <conditions>
+                        <condition id="-21" name="Is between values" sid="2949753754134712" type="System">
+                            <param id="0" name="Value">CrossHirePB.X</param>
+                            <param id="1" name="Lower bound">11</param>
+                            <param id="2" name="Upper bound">364</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="1533324566562913" type="System">
+                            <param id="0" name="Value">CrossHirePB.Y</param>
+                            <param id="1" name="Lower bound">11</param>
+                            <param id="2" name="Upper bound">738</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="2950239690683762" type="CrossHirePB">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set cursor style" sid="6225006690259471" type="Mouse">
+                            <param id="0" name="Cursor style">7</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="3518723034187756" type="System">
+                            <param id="0" name="Group name">&quot;Location Good&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="9781760578064041" type="CrossHirePB">
+                            <param id="0" name="Animation">&quot;Good&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7568170095993686" type="System">
+                            <param id="0" name="Variable">BaseX</param>
+                            <param id="1" name="Value">round(CrossHirePB.X * 27.2)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8023273854004882" type="System">
+                            <param id="0" name="Variable">BaseY</param>
+                            <param id="1" name="Value">round(CrossHirePB.Y * 26.93)</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6967235356570836" type="BaseLocT">
+                            <param id="0" name="Text">&quot;Base Location: (&quot;&amp;BaseX&amp;&quot;,&quot;&amp;BaseY&amp;&quot;)&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>This is the area that you can&apos;t put a Base</comment>
+                <event-block any="1" sid="7004464421120681">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="7612631370688758" type="System">
+                            <param id="0" name="First value">CrossHirePB.Y</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">738</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="9975124969830641" type="System">
+                            <param id="0" name="First value">CrossHirePB.Y</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="5358530585257619" type="System">
+                            <param id="0" name="First value">CrossHirePB.X</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="8322599975179914" type="System">
+                            <param id="0" name="First value">CrossHirePB.X</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">364</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="3144348314681118" type="System">
+                            <param id="0" name="Group name">&quot;Location Good&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="1008859106892252" type="CrossHirePB">
+                            <param id="0" name="Animation">&quot;Bad&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Out side Picking Area" sid="230292715605792" title="Out side Picking Area">
+            <sub-events>
+                <comment>Turns off the crosshire and sets the mouse cursor to normal</comment>
+                <event-block any="1" sid="2845721230821369">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="595710395052275" type="System">
+                            <param id="0" name="First value">CrossHirePB.Y</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">750</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="9390334821349149" type="System">
+                            <param id="0" name="First value">CrossHirePB.X</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">375</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="961357679298415" type="CrossHirePB">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="0" name="Set cursor style" sid="6980017958896522" type="Mouse">
+                            <param id="0" name="Cursor style">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="2335466177918378" type="System">
+                            <param id="0" name="Group name">&quot;Location Good&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="7618492514944555" type="CrossHirePB">
+                            <param id="0" name="Animation">&quot;Bad&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Location Good to set Base" inactive="1" sid="8994794979642729" title="Location Good">
+            <sub-events>
+                <event-block sid="294311351095601">
+                    <conditions>
+                        <condition id="0" name="On click" sid="507606835311252" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="988106425935114" type="Base" />
+                        <action id="-3" name="Create object" sid="3957425413880842" type="System">
+                            <param id="0" name="Object to create">Base</param>
+                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                            <param id="2" name="X">CrossHirePB.X</param>
+                            <param id="3" name="Y">CrossHirePB.Y</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="921770857364027" type="Base">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Set Base Button" sid="3109584377441638" title="Set Base Button">
+            <sub-events>
+                <event-block sid="9757189220369983">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="2902873461667065" type="SetBaseLoc" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9854979001959075" type="System">
+                            <param id="0" name="Variable">TankBase1X</param>
+                            <param id="1" name="Value">round(Base.X * 27.2)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3289093096623229" type="System">
+                            <param id="0" name="Variable">TankBase1Y</param>
+                            <param id="1" name="Value">round(Base.Y * 26.93)</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="1855299513524311" type="System">
+                            <param id="0" name="Layout">MainGame</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

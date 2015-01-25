@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>HUD</name>
+    <events>
+        <event-group description="Top HUD" sid="487207449704916" title="Top HUD">
+            <sub-events>
+                <comment>This updates the Top Hud text</comment>
+                <event-block sid="6310797436856585">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="3672351004574734" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9208323578906751">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="7557725791183309" type="TankBottom">
+                                    <param id="0" name="Instance variable">TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">LastPickedTank</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="7348419016428206" type="TankNumberD">
+                                    <param id="0" name="Text">TankBottom.TankID</param>
+                                </action>
+                                <action id="0" name="Set text" sid="4441168690284597" type="TankLocationD">
+                                    <param id="0" name="Text">TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                                <action id="0" name="Set text" sid="8293063601483321" type="TankHealthD">
+                                    <param id="0" name="Text">TankBottom.Health</param>
+                                </action>
+                                <action id="0" name="Set text" sid="9252016169061034" type="TankLaserPowerCellD">
+                                    <param id="0" name="Text">TankBottom.Laser</param>
+                                </action>
+                                <action id="0" name="Set text" sid="7781280564685172" type="TankShellsD">
+                                    <param id="0" name="Text">TankBottom.Shell</param>
+                                </action>
+                                <action id="0" name="Set text" sid="4770645641198804" type="TankFireFuelD">
+                                    <param id="0" name="Text">TankBottom.Fire</param>
+                                </action>
+                                <action id="0" name="Set text" sid="6605128412959609" type="TankLandminesD">
+                                    <param id="0" name="Text">TankBottom.LandMine</param>
+                                </action>
+                                <action id="0" name="Set text" sid="5788073785644057" type="TankWeaponSeletedD">
+                                    <param id="0" name="Text">TankBottom.WeaponSelected</param>
+                                </action>
+                                <action id="0" name="Set text" sid="8375272824131342" type="FPSInfoTxt">
+                                    <param id="0" name="Text">&quot;FPS: &quot;&amp;fps&amp;&quot; Objects: &quot;&amp;objectcount</param>
+                                </action>
+                                <action id="0" name="Set text" sid="6806288081722789" type="TankSpeedD">
+                                    <param id="0" name="Text">TankBottom.Speed</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Bottom HUD" sid="4066893415534776" title="Bottom HUD">
+            <sub-events>
+                <comment>This updates the Bottom Hud text</comment>
+                <event-block sid="8741996262860768">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="4984009670404008" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="9277924227030063" type="Base1LocationD">
+                            <param id="0" name="Text">TankBase1.Sector&amp;&quot; (&quot;&amp;round(TankBase1.TankBaseX)&amp;&quot;,&quot;&amp;round(TankBase1.TankBaseY)&amp;&quot;)&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6321167045053293" type="Base1HealthD">
+                            <param id="0" name="Text">TankBase1.Health</param>
+                        </action>
+                        <action id="0" name="Set text" sid="120001367482991" type="Base1LasrPowerCellD">
+                            <param id="0" name="Text">TankBase1.LaserPowerCell</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7225214563989053" type="Base1ShellsD">
+                            <param id="0" name="Text">TankBase1.Shells</param>
+                        </action>
+                        <action id="0" name="Set text" sid="880369317588589" type="Base1FireFuelD">
+                            <param id="0" name="Text">TankBase1.Fuel</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6358960510911916" type="Base1LandminesD">
+                            <param id="0" name="Text">TankBase1.Landmines</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8348706916299984">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="5404996123077056" type="System">
+                            <param id="0" name="Object">TankBottom</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9955860352926352">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="6299844797745231" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="1844618705793933" type="Tank1D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4142798595671878">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4147985036682" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="7050270484242484" type="Tank2D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8297617144820838">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4823815242218856" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="2703508546631592" type="Tank3D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5206203173185091">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="439068394359813" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="9745849095082472" type="Tank4D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8706677788357661">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="3489368640015511" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="393750167770996" type="Tank5D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1168898735728091">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="1064319647008699" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="6705389392845615" type="Tank6D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6148094070734949">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="2061374746090363" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">7</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="4546387272631349" type="Tank7D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9898612319237222">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4913966534417902" type="System">
+                                    <param id="0" name="First value">TankBottom.TankID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">8</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="9970405004026719" type="Tank8D">
+                                    <param id="0" name="Text">TankBottom.Health&amp;&quot; / &quot;&amp;TankBottom.Sector&amp;&quot; (&quot;&amp;round(TankBottom.TankX)&amp;&quot;,&quot;&amp;round(TankBottom.TankY)&amp;&quot;)&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

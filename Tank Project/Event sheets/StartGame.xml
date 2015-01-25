@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>StartGame</name>
+    <events>
+        <comment>Turn off the mouse cursor (arrow)</comment>
+        <event-block sid="2649315755069166">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2147034050526422" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="5453788266704798" type="Mouse">
+                    <param id="0" name="Cursor style">7</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Setup animation for buttons when mouse is over buttons</comment>
+        <event-block sid="5258815987910971">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="5451386516410593" type="Mouse">
+                    <param id="0" name="Object">AboutGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="8416880993112286" type="AboutGameButton">
+                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5018482550308415">
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" sid="2588315934560082" type="Mouse">
+                    <param id="0" name="Object">AboutGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="8789424486869707" type="AboutGameButton">
+                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7030251643309766">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="2872633104604311" type="Mouse">
+                    <param id="0" name="Object">StartGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1512856164373202" type="StartGameButton">
+                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8588493515115264">
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" sid="9929081152062842" type="Mouse">
+                    <param id="0" name="Object">StartGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="8239185266258384" type="StartGameButton">
+                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Set animation for the Crosshairs when mouse is over buttons</comment>
+        <event-block any="1" sid="919232094583939">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="8944324510140925" type="Mouse">
+                    <param id="0" name="Object">StartGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="3869587637934955" type="CrosshairsStartG">
+                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="376073072693173">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="8958994679554252" type="Mouse">
+                    <param id="0" name="Object">AboutGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="8659519327724675" type="CrosshairsStartG">
+                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6642007762263457">
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" sid="9277554936014109" type="Mouse">
+                    <param id="0" name="Object">StartGameButton</param>
+                </condition>
+                <condition id="7" inverted="1" name="Cursor is over object" sid="9464894449594558" type="Mouse">
+                    <param id="0" name="Object">AboutGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="1464718800281281" type="CrosshairsStartG">
+                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>When you click on the Start Game Button will take you to PickBaseLoc Layout</comment>
+        <event-block sid="3070509211484636">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="8244296807530158" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">StartGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="1611642342034498" type="System">
+                    <param id="0" name="Layout">PickBaseLoc</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>When you click on About Game button will take you to AboutGame Layout</comment>
+        <event-block sid="9692695218796102">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="2835589415403152" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">AboutGameButton</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="2998897365743122" type="System">
+                    <param id="0" name="Layout">AboutGame</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
